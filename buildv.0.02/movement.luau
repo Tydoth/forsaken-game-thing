@@ -1,5 +1,6 @@
 
 -- !nonstrict
+-- ^ what
 
 -- Notes:
 --- Assitant was made to fix some faults, but not to make the script.
