@@ -23,6 +23,15 @@ local StatCopier = require(ServerScriptService.Modules.Helpers.StatCopier);
 -- for the love of goodness pplease move these 2 types elsewhere we do not need it in this script
 -- make it soon before school starts nerd
 -- oh wait
+
+-- when will the export type be used actually
+export type PlayerType = {
+  controller: Player;
+  Character: Model;
+  Actionable: boolean;
+  -- blah blah blah other yap
+};
+
 type SoundMap = {
   [string]: Sound;
 };
@@ -33,9 +42,7 @@ type SoundsType = {
   Voiceline: SoundMap;
 };
 
-export type ElifType = {
-  Actionable: boolean;
-  Character: Model;
+export type ElifType = PlayerType & {
   Panels: {BasePart};
   Player: Player;
   Sounds: SoundsType;
@@ -60,7 +67,6 @@ Elif.__index = Elif;
 -- Create new killer
 function Elif.new(controller: Player): ElifType
   local self = (setmetatable(Player.new(controller), Elif) :: ElifType); -- we do not care about the warning idk how to fix
-  self.Actionable = true;
 
   do -- Character handling stuff
     do -- Create character
@@ -77,13 +83,13 @@ function Elif.new(controller: Player): ElifType
 
       movementValues.Parent = self.Character;
       movementAnims.Parent = self.Character;
-      self.MovementAnims = movementAnims; -- movementAnimsTemplate:Clone();
+      self.MovementAnims = movementAnims;
       self.StaminaValues = movementValues;
     end;
   end;
 
   do-- Sounds
-    local soundsFolder = script.Settings.Sounds;
+    local soundsFolder = script.Settings.AbilitySounds; -- WHY IS IT NAMED THAT WHEn IT HAS VOICELINES TOO
 
     -- Set sounds idk at this point
     self.Sounds = {
