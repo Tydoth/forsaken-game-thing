@@ -2,12 +2,6 @@
 -- Moved movement animation container to their respective module script instead of their model for ease of access
 local ReplicatedStorage = game:GetService("ReplicatedStorage");
 
-export type PlayerType = {
-  controller: Player;
-  Character: Model;
-  -- blah blah blah other yap
-};
-
 local Player = {};
 Player.__index = Player;
 
@@ -15,7 +9,7 @@ function Player.new(player: Player): {}
   local self = setmetatable({}, Player);
   
   do
-    -- self.Actionable = true;
+    self.Actionable = true;
     self.Player = player;
     self.PlayAnimation = Player.PlayAnimation;
     self.destroy = Player.destroy;
