@@ -1,1 +1,2 @@
--- 8/3/25 (MM/DD/YYYY/) made this
+-- 8/3/25 (MM/DD/YYYY/) made this ( only here, not in the game )
+-- 8/4/35: added more scripts in and polished more scripts, will fix SystemScript later
